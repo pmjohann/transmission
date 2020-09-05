@@ -21,6 +21,7 @@ set -o nounset                              # Treat unset variables as an error
 dir="/var/lib/transmission-daemon"
 [[ -d $dir/downloads ]] || mkdir -p $dir/downloads
 [[ -d $dir/incomplete ]] || mkdir -p $dir/incomplete
+[[ -d $dir/watch ]] || mkdir -p $dir/watch
 [[ -d $dir/info/blocklists ]] || mkdir -p $dir/info/blocklists
 [[ -r $dir/info/settings.json ]] || cat >$dir/info/settings.json <<-EOF
 	{
@@ -29,6 +30,8 @@ dir="/var/lib/transmission-daemon"
 	    "download-dir": "/var/lib/transmission-daemon/downloads",
 	    "incomplete-dir": "/var/lib/transmission-daemon/incomplete",
 	    "incomplete-dir-enabled": true,
+		"watch-dir": "/var/lib/transmission-daemon/watch",
+	    "watch-dir-enabled": true,
 	    "download-limit": 100,
 	    "download-limit-enabled": 0,
 	    "encryption": 1,

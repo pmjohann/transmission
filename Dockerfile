@@ -11,12 +11,15 @@ RUN apk --no-cache --no-progress upgrade && \
     usermod -d $dir transmission && \
     [[ -d $dir/downloads ]] || mkdir -p $dir/downloads && \
     [[ -d $dir/incomplete ]] || mkdir -p $dir/incomplete && \
+    [[ -d $dir/watch ]] || mkdir -p $dir/watch && \
     [[ -d $dir/info/blocklists ]] || mkdir -p $dir/info/blocklists && \
     /bin/echo -e '{\n    "blocklist-enabled": 0,' >$file && \
     echo '    "dht-enabled": true,' >>$file && \
     echo '    "download-dir": "'"$dir"'/downloads",' >>$file && \
     echo '    "incomplete-dir": "'"$dir"'/incomplete",' >>$file && \
     echo '    "incomplete-dir-enabled": true,' >>$file && \
+    echo '    "watch-dir": "'"$dir"'/watch",' >>$file && \
+    echo '    "watch-dir-enabled": true,' >>$file && \
     echo '    "download-limit": 100,' >>$file && \
     echo '    "download-limit-enabled": 0,' >>$file && \
     echo '    "encryption": 1,' >>$file && \
