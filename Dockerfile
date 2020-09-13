@@ -1,9 +1,6 @@
-FROM alpine
-MAINTAINER David Personette <dperson@gmail.com>
+FROM alpine:3.12
 
-# Install transmission
-RUN apk --no-cache --no-progress upgrade && \
-    apk --no-cache --no-progress add bash curl shadow sed tini \
+RUN apk --no-cache add bash curl shadow sed tini \
                 transmission-daemon tzdata && \
     DIR="/transmission" && \
     SETTINGS="$DIR/info/settings.json" && \
